@@ -1,0 +1,46 @@
+POSTMAN 
+ 
+1. http://localhost:8080/auth/verify-aadhaar (POST)
+
+Body:
+   {
+   "aadhaar": "123456789012" // Replace with a valid Aadhaar number
+   }
+2. http://localhost:8080/auth/validate-otp (POST)
+
+Body:
+   {
+   "aadhaar": "123456789012", // Replace with a valid Aadhaar number
+   "otp": "123456" 
+}
+3. http://localhost:8080/auth/signup (POST)
+
+Body:
+{
+"userName": "sam",
+"email": "sam@example.com",
+"password": "samsam",
+"aadhaar": "123456789012"
+}
+4. http://localhost:8080/auth/signin (POST)
+
+Body:
+{
+"email": "john.doe@example.com",
+"password": "johnjohn",
+"rememberMe": true // Optional
+}
+5. http://localhost:8080/auth/reset-password (POST)
+
+Body:
+{
+"token": "yourResetToken", // Token received in the email
+"newPassword": "newPassword123"
+}
+6. http://localhost:8080/auth/change-password (POST)
+
+Body:
+{
+"currentPassword": "password123",
+"newPassword": "newpassword456"
+}
