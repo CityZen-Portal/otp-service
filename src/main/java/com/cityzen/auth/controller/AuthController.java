@@ -102,11 +102,11 @@ public class AuthController {
     @PostMapping("/generate-otp")
     public ResponseEntity<?> generateOtp(@RequestHeader("token") String token,@RequestBody EmailRequest request, HttpServletRequest httpRequest) {
      try{
-//
-//         TokenResponseDto tokenResponseDto = userInterface.validateUser(token).getBody();
-//         if(!tokenResponseDto.isValid()){
-//             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ApiResponse<>(404, null, "UNAUTHORIZED USER", httpRequest.getRequestURI()));
-//         }
+
+         TokenResponseDto tokenResponseDto = userInterface.validateUser(token).getBody();
+         if(!tokenResponseDto.isValid()){
+             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ApiResponse<>(404, null, "UNAUTHORIZED USER", httpRequest.getRequestURI()));
+         }
 
          ApiResponse<Boolean> validUser =  userInterface.checkUser(request.getEmail()).getBody();
          if(validUser.getData() == false){
