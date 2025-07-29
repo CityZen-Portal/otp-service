@@ -134,7 +134,8 @@ public class AuthController {
         }
         String otp = otpService.resendOtp(request.getEmail());
         emailService.sendOtp(request.getEmail(), otp);
-        return ResponseEntity.ok("OTP resent to " + request.getEmail());
+
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(new ApiResponse<>(200, "OTP resent to " + request.getEmail(), null , httpRequest.getRequestURI()));
     }
 
     @PostMapping("/validate-otp")
@@ -145,7 +146,7 @@ public class AuthController {
         }
         boolean isValid = otpService.validateOtp(request.getEmail(), request.getOtp());
         if (isValid) {
-            return ResponseEntity.ok("OTP is valid");
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(new ApiResponse<>(200, "VALID OTP",  null, httpRequest.getRequestURI()));
         } else {
             return ResponseEntity.badRequest().body("Invalid OTP");
         }
