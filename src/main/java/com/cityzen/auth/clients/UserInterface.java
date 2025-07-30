@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 
 @FeignClient(name = "UserManagementService", url = "https://auth-backend-cpcr.onrender.com")
-//@FeignClient(name = "UserManagementService", url = "http://localhost:7000")
 public interface UserInterface {
     @GetMapping("/api/auth/validate")
      ResponseEntity<TokenResponseDto> validateUser(@RequestHeader("token")  String token);

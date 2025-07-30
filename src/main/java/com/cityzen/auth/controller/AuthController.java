@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 
-@CrossOrigin(origins = {"http://localhost:3000", "https://cityzen-frontend.vercel.app"})
 @RestController
 @RequestMapping("/api/otp")
 public class AuthController {
