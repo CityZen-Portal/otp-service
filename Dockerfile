@@ -9,5 +9,5 @@ RUN mvn -q clean package -DskipTests
 FROM amazoncorretto:24-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
-EXPOSE 8500
+EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
